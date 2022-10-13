@@ -1,6 +1,7 @@
 .item {
     color: white;
     margin-left: 25px;
+    grid-area: i;
 }
 
 .item img {

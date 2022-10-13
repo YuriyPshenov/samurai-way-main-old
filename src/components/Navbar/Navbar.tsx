@@ -4,10 +4,10 @@ import n from "./Navbar.module.css";
 export const Navbar = () => {
     return (
         <nav className={n.nav}>
-            <div className={`${n.item} ${n.active}`}>
+            <div className={n.item}>
                 <a>Profile</a>
             </div>
-            <div className={n.item}>
+            <div className={`${n.item} ${n.active}`}>
                 <a>Messages</a>
             </div>
             <div className={n.item}>
