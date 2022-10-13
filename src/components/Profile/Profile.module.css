@@ -7,10 +7,4 @@
 .content img {
     width: 1000px;
     height: auto;
-    box-shadow: 0 0 10px 0 midnightblue;
-}
-
-.item {
-    color: white;
-    margin-left: 25px;
 }
