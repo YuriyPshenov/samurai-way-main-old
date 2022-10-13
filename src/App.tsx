@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
+import {Technologies} from "./Technologies";
+import {Header} from "./Header";
 
-export function App()  {
+export const App = () => {
     return (
-        <div className="App">
-            <ul>
-                <li>CSS</li>
-                <li>HTML</li>
-                <li>JS</li>
-                <li>REACT</li>
-            </ul>
+        <div>
+            <Header/>
+            <Technologies/>
         </div>
     );
 }
