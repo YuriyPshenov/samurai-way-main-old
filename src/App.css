@@ -12,3 +12,14 @@
     "h h"
     "n c" "n c" "n c";
 }
+
+.app-wrapper-content {
+    width: 1000px;
+    background-color: cornflowerblue;
+    grid-area: c;
+}
+
+.app-wrapper-content img {
+    width: 1000px;
+    height: auto;
+}

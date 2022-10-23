@@ -4,10 +4,16 @@
     padding: 20px 0 0 20px;
 }
 
+.item a {
+    color: white;
+    text-decoration: none;
+}
+
 .item {
     color: lightcyan;
 }
 
-.item.active {
-    color: cornflowerblue;
+.item a.activeLink {
+    color: teal;
+    font-weight: 500;
 }

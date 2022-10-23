@@ -1,3 +1,8 @@
-.mypost {
+.postsBlock {
+    padding: 10px;
     grid-area: m;
+}
+
+.posts {
+    margin-top: 10px;
 }

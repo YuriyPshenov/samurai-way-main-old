@@ -1,9 +1,25 @@
 .item {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 50px 1fr;
+    grid-template-areas: "a pm" "a l" ;
     color: white;
-    margin-left: 25px;
     grid-area: i;
+    margin-bottom: 10px;
 }
 
 .item img {
     width: 50px;
+}
+
+.avatar {
+    grid-area: a;
+}
+
+.postMessage {
+    grid-area: pm;
+}
+
+.likes {
+    grid-area: l;
 }
