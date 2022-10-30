@@ -9,14 +9,27 @@ import {Music} from "./components/Music/Music";
 import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 
-export const App = () => {
+export type PostDataType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+type AppPropsType = {
+    postData: Array<PostDataType>
+}
+
+export const App: React.FC<AppPropsType> = ({postData}) => {
+
+
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route path="/profile" component={Profile}/>
+                    <Route path="/profile" render={() => <Profile postData={postData} />}/>
                     <Route path="/dialogs" component={Dialogs}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>

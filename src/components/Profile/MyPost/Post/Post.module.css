@@ -9,6 +9,7 @@
 }
 
 .item img {
+    border-radius: 50%;
     width: 50px;
 }
 
@@ -16,10 +17,28 @@
     grid-area: a;
 }
 
+.avatar img {
+    background-color: lightslategray;
+    border: 1px solid grey;
+    box-shadow: 0 2px rgba(0,0,0, 0.1);
+}
+
 .postMessage {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
     grid-area: pm;
 }
 
 .likes {
+    margin-left: 10px;
     grid-area: l;
+
+}
+
+.likes img {
+    margin-left: 5px;
+    width: 14px;
+    filter: brightness(0) invert(1);
 }

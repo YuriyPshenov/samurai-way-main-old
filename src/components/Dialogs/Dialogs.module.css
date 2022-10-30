@@ -7,18 +7,20 @@
 
 }
 
+
 .dialogsItems {
 
 }
 
 .dialogsItems .active {
-    color: aqua;
+
 }
+
 
 .messages {
 
 }
 
 .messages .message {
-
+    color: white;
 }

@@ -1,8 +1,13 @@
 import React from "react";
 import {Post} from "./Post/Post";
 import s from "./MyPosts.module.css"
+import {PostDataType} from "../../../App";
 
-export const MyPosts = () => {
+type MyPostsPropsType = {
+    postData: Array<PostDataType>
+}
+
+export const MyPosts: React.FC<MyPostsPropsType> = ({postData}) => {
 
     return (
         <div className={s.postsBlock}>
@@ -17,9 +22,9 @@ export const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message="Hey!" like="4 likes"/>
-                <Post message="How are you?" like="2 likes"/>
-                <Post message="Wow, i see you!" like="3 likes"/>
+                {postData.map(m => {
+                    return <Post key={m.id} message={m.message} like={m.likesCount}/>
+                })}
             </div>
         </div>
     )

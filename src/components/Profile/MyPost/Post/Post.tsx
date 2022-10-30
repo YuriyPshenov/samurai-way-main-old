@@ -4,7 +4,7 @@ import s from "./Post.module.css";
 
 type messagePropsType = {
     message: string;
-    like: string;
+    like: number;
 }
 
 export const Post = (props: messagePropsType) => {
@@ -20,6 +20,7 @@ export const Post = (props: messagePropsType) => {
             </div>
             <div className={s.likes}>
                 <span>{props.like}</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/001/188/163/original/heart-png.png" alt={'logo'}/>
             </div>
         </div>
     )
