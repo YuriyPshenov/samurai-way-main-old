@@ -15,22 +15,70 @@ export type PostDataType = {
     likesCount: number
 }
 
-type AppPropsType = {
+export type MessageDataType = {
+    id: number
+    message: string
+}
+
+export type DialogsDataType = {
+    id: number
+    name: string
+}
+
+export type FriendsDataType = {
+    id: number
+    name: string
+}
+
+export type ProfilePageType = {
     postData: Array<PostDataType>
 }
 
-export const App: React.FC<AppPropsType> = ({postData}) => {
+export type MessagesPageType = {
+    messagesData: Array<MessageDataType>
+    dialogsData: Array<DialogsDataType>
+}
 
+export type SiteBarType = {
+    friendsData: Array<FriendsDataType>
+}
 
+type StateType = {
+    profilePage: ProfilePageType
+    messagesPage: MessagesPageType
+    siteBar: SiteBarType
+}
+
+type AppPropsType = {
+    appState: StateType
+}
+
+//ФУНКЦИЯ ЗА ОБЛАСТЬЮ ВИДИМОСТИ КОМПОНЕНТЫ АРР//
+// const pureProfile = (d: Array<DialogsDataType>, m: Array<MessageDataType>) => {
+//     return <Dialogs dialogsData={d} messagesData={m}/>
+// }
+
+export const App: React.FC<AppPropsType> = (
+    {
+        appState
+    }) => {
+
+    const pureProfile = () => {
+        return <Profile profilePageData={appState.profilePage}/>
+    }
+
+    const pureDialogs = () => {
+        return <Dialogs messagesPageData={appState.messagesPage}/>
+    }
 
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Navbar/>
+                <Navbar siteBar={appState.siteBar}/>
                 <div className="app-wrapper-content">
-                    <Route path="/profile" render={() => <Profile postData={postData} />}/>
-                    <Route path="/dialogs" component={Dialogs}/>
+                    <Route path="/profile" render={pureProfile}/>
+                    <Route path="/dialogs" render={pureDialogs}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>

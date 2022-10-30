@@ -18,8 +18,8 @@
 }
 
 .avatar img {
-    background-color: lightslategray;
-    border: 1px solid grey;
+    background-color: rgba(0,0,0, 0.4);
+    border: 1px transparent;
     box-shadow: 0 2px rgba(0,0,0, 0.1);
 }
 
