@@ -51,6 +51,7 @@ type StateType = {
 
 type AppPropsType = {
     appState: StateType
+    addPost: (textMessage: string) => void
 }
 
 //ФУНКЦИЯ ЗА ОБЛАСТЬЮ ВИДИМОСТИ КОМПОНЕНТЫ АРР//
@@ -60,11 +61,12 @@ type AppPropsType = {
 
 export const App: React.FC<AppPropsType> = (
     {
-        appState
+        appState,
+        addPost
     }) => {
 
     const pureProfile = () => {
-        return <Profile profilePageData={appState.profilePage}/>
+        return <Profile profilePageData={appState.profilePage} addPost={addPost}/>
     }
 
     const pureDialogs = () => {

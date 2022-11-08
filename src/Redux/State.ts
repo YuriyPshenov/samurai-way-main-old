@@ -34,3 +34,11 @@ export let state = {
         ],
     },
 }
+
+export const addPost = (postMessage: string) => {
+    debugger
+    const newPost = {
+        id: state.profilePage.postData.length + 1, message: postMessage, likesCount: 0
+    }
+    state.profilePage.postData.push(newPost)
+}

@@ -5,15 +5,17 @@ import {PostDataType} from "../../../App";
 
 type MyPostsPropsType = {
     postData: Array<PostDataType>
+    addPost: (textMessage: string) => void
 }
 
-export const MyPosts: React.FC<MyPostsPropsType> = ({postData}) => {
+export const MyPosts = (props: MyPostsPropsType) => {
 
     const newPostElement: LegacyRef<HTMLTextAreaElement> | undefined = React.createRef()
 
-    const addPost = () => {
+    const addNewPost = () => {
+        debugger
         const text = newPostElement.current!.value
-        alert(text)
+        props.addPost(text)
     }
 
     return (
@@ -24,12 +26,12 @@ export const MyPosts: React.FC<MyPostsPropsType> = ({postData}) => {
                     <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={addNewPost}>Add post</button>
                     <button onClick={()=>{alert('removing post')}}>Remove</button>
                 </div>
             </div>
             <div className={s.posts}>
-                {postData.map(m => {
+                {props.postData.map(m => {
                     return <Post key={m.id} message={m.message} like={m.likesCount}/>
                 })}
             </div>

@@ -25,13 +25,13 @@ export const Dialogs: React.FC<DialogsPropsType> = ({messagesPageData}) => {
             <div className={s.dialogsItems}>
                 {messagesPageData.dialogsData.map(d => {
                     return (
-                        <DialogItem name={d.name} id={d.id}/>
+                        <DialogItem name={d.name} id={d.id} key={d.id}/>
                     )
                 })}
             </div>
             <div className={s.messages}>
                 {messagesPageData.messagesData.map(m => {
-                    return <Message message={m.message}/>
+                    return <Message message={m.message} key={m.id}/>
                 })}
                 <textarea ref={refMessage}></textarea>
                 <button onClick={sendMessage}>send message</button>
