@@ -43,7 +43,7 @@ export type SiteBarType = {
     friendsData: Array<FriendsDataType>
 }
 
-type StateType = {
+export type StateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
     siteBar: SiteBarType

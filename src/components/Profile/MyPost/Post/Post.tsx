@@ -8,12 +8,16 @@ type messagePropsType = {
 }
 
 export const Post = (props: messagePropsType) => {
+
     return (
         <div className={s.item}>
             <div className={s.avatar}>
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1024px-Emblem-person-blue.svg.png"
                     alt=""/>
+            </div>
+            <div className={s.buttonLike}>
+                <button>like</button>
             </div>
             <div className={s.postMessage}>
                 {props.message}

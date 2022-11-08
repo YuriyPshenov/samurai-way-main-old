@@ -13,9 +13,9 @@ export const MyPosts = (props: MyPostsPropsType) => {
     const newPostElement: LegacyRef<HTMLTextAreaElement> | undefined = React.createRef()
 
     const addNewPost = () => {
-        debugger
         const text = newPostElement.current!.value
         props.addPost(text)
+        newPostElement.current!.value = ''
     }
 
     return (
