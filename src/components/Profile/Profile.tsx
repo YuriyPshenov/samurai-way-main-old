@@ -11,7 +11,7 @@ export const Profile: React.FC<ProfilePropsType> = ({profilePageData}) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts postData={profilePageData.postData} />
+            <MyPosts postData={profilePageData.postData}/>
         </div>
     )
 }

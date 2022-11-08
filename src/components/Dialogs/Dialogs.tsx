@@ -1,4 +1,4 @@
-import React from "react";
+import React, {LegacyRef} from "react";
 import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
@@ -10,6 +10,15 @@ type DialogsPropsType = {
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = ({messagesPageData}) => {
+
+    const refMessage: LegacyRef<HTMLTextAreaElement> | undefined = React.createRef()
+
+    const sendMessage = () => {
+        const textMessage = refMessage.current!.value
+        if (textMessage !== '') {
+            alert(textMessage)
+        }
+    }
 
     return (
         <div className={s.dialogs}>
@@ -24,6 +33,8 @@ export const Dialogs: React.FC<DialogsPropsType> = ({messagesPageData}) => {
                 {messagesPageData.messagesData.map(m => {
                     return <Message message={m.message}/>
                 })}
+                <textarea ref={refMessage}></textarea>
+                <button onClick={sendMessage}>send message</button>
             </div>
         </div>
     )

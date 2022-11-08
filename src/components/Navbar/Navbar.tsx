@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarPropsType> = ({siteBar}) => {
                     <div className={s.friendsGrid}>
                         {siteBar.friendsData.map(f => {
                             return (
-                                <div className={s.friendOne}>
+                                <div className={s.friendOne} key={f.id}>
                                     <div className={s.friendAvatar}>
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1024px-Emblem-person-blue.svg.png" alt="logo"/>
                                     </div>
