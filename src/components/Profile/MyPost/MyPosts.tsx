@@ -5,7 +5,9 @@ import {PostDataType} from "../../../App";
 
 type MyPostsPropsType = {
     postData: Array<PostDataType>
-    addPost: (textMessage: string) => void
+    addPost: () => void
+    newPostText: string
+    updateNewPostText: (newText: string) => void
 }
 
 export const MyPosts = (props: MyPostsPropsType) => {
@@ -13,9 +15,12 @@ export const MyPosts = (props: MyPostsPropsType) => {
     const newPostElement: LegacyRef<HTMLTextAreaElement> | undefined = React.createRef()
 
     const addNewPost = () => {
+        props.addPost()
+    }
+
+    const onPostChange = () => {
         const text = newPostElement.current!.value
-        props.addPost(text)
-        newPostElement.current!.value = ''
+        props.updateNewPostText(text)
     }
 
     return (
@@ -23,7 +28,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
             <h3>My post</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}></textarea>
                 </div>
                 <div>
                     <button onClick={addNewPost}>Add post</button>

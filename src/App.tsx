@@ -32,6 +32,7 @@ export type FriendsDataType = {
 
 export type ProfilePageType = {
     postData: Array<PostDataType>
+    newPostText: string
 }
 
 export type MessagesPageType = {
@@ -51,7 +52,8 @@ export type StateType = {
 
 type AppPropsType = {
     appState: StateType
-    addPost: (textMessage: string) => void
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
 }
 
 //ФУНКЦИЯ ЗА ОБЛАСТЬЮ ВИДИМОСТИ КОМПОНЕНТЫ АРР//
@@ -62,11 +64,12 @@ type AppPropsType = {
 export const App: React.FC<AppPropsType> = (
     {
         appState,
-        addPost
+        addPost,
+        updateNewPostText
     }) => {
 
     const pureProfile = () => {
-        return <Profile profilePageData={appState.profilePage} addPost={addPost}/>
+        return <Profile profilePageData={appState.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>
     }
 
     const pureDialogs = () => {
